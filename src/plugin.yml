@@ -1,0 +1,21 @@
+name: SocialCommands
+description: SocialCommands is a plugin that adds commands like /discord to your server
+version: 1.0.0
+author: NetherMC
+main: fr.nethermc.socialcommands.Main
+commands:
+  discord:
+    description: Get the Discord server of the server
+    usage: /discord
+  twitter:
+    description: Get the Twitter account of the server
+    usage: /twitter
+  instagram:
+    description: Get the Instagram account of the server
+    usage: /instagram
+  website:
+    description: Get the website URL of the server
+    usage: /website
+  socialset:
+    description: Define social links without going through the configuration file
+    usage: /socialset <platform> <link>
