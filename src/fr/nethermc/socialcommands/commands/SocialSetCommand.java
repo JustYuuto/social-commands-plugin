@@ -1,7 +1,7 @@
 package fr.nethermc.socialcommands.commands;
 
-import fr.nethermc.socialcommands.*;
-
+import fr.nethermc.socialcommands.Main;
+import fr.nethermc.socialcommands.SocialRegexs;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

@@ -1,12 +1,9 @@
 package fr.nethermc.socialcommands;
 
-import fr.nethermc.socialcommands.commands.*;
-
-import org.bukkit.configuration.file.YamlConfiguration;
+import fr.nethermc.socialcommands.commands.SocialCommand;
+import fr.nethermc.socialcommands.commands.SocialSetCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
 public class Main extends JavaPlugin {
