@@ -1,5 +1,6 @@
 name: SocialCommands
 description: SocialCommands is a plugin that adds commands like /discord to your server
+website: https://www.spigotmc.org/resources/socialcommands.95783/
 version: 1.0.0
 author: NetherMC
 main: fr.nethermc.socialcommands.Main
