@@ -45,6 +45,11 @@
                 <directory>src/main/resources/</directory>
                 <filtering>true</filtering>
             </resource>
+            <resource>
+                <directory>src/main/resources/messages/</directory>
+                <targetPath>./messages/</targetPath>
+                <filtering>false</filtering>
+            </resource>
         </resources>
 
         <plugins>
