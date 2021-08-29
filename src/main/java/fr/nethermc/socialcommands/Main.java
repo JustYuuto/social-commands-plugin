@@ -10,7 +10,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        List<String> platforms = new SocialRegexs().platforms;
+        List<String> platforms = SocialRegexs.PLATFORMS;
 
         for (String platform : platforms) {
             getCommand(platform).setExecutor(new SocialCommand(this, platform));

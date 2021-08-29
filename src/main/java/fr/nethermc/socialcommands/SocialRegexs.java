@@ -7,24 +7,13 @@ import java.util.regex.Pattern;
 
 public class SocialRegexs {
 
-    public String discord;
-    public String twitter;
-    public String instagram;
-    public String website;
-    public List<String> platforms;
+    public static final String DISCORD_REGEX = "((https?\\:\\/\\/)?discord\\.(gg|io)\\/)?([a-zA-Z0-9]+)";
+    public static final String TWITTER_REGEX = "((((https?\\:\\/\\/)?twitter\\.com\\/)?)|\\@)?([a-zA-Z0-9_]+)";
+    public static final String INSTAGRAM_REGEX = "((((https?\\:\\/\\/)?(www\\.)?instagr(am\\.com|\\.am)\\/)?)|\\@)?([a-zA-Z0-9_]+)";
+    public static final String WEBSITE_REGEX = "(https?\\:(\\/\\/)?)?(([a-z\\.]+)\\.)?(([a-z]+)\\.([a-z]+))(\\/([a-zA-Z0-9_\\-\\.]+)?)?";
+    public static final List<String> PLATFORMS = Arrays.asList("discord", "twitter", "instagram", "website");
 
-    public SocialRegexs() {
-        this.platforms = Arrays.asList(
-            "discord",
-            "twitter",
-            "instagram",
-            "website"
-        );
-        this.discord = "((https?\\:\\/\\/)?discord\\.(gg|io)\\/)?([a-zA-Z0-9]+)";
-        this.twitter = "((((https?\\:\\/\\/)?twitter\\.com\\/)?)|\\@)?([a-zA-Z0-9_]+)";
-        this.instagram = "((((https?\\:\\/\\/)?(www\\.)?instagr(am\\.com|\\.am)\\/)?)|\\@)?([a-zA-Z0-9_]+)";
-        this.website = "(https?\\:(\\/\\/)?)?(([a-z\\.]+)\\.)?(([a-z]+)\\.([a-z]+))(\\/([a-zA-Z0-9_\\-\\.]+)?)?";
-    }
+    public SocialRegexs() {}
 
     public boolean regexMatch(String pattern, String string) {
         Pattern compiledPattern = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
