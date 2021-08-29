@@ -1,0 +1,3 @@
+platform_does_not_exist: "§cThe platform \"%s\" does not exist. §rAvailable platforms: https://bit.ly/3gIkrjk"
+cannot_save_config: "§cCannot save the config. Check the console for more details.§r"
+missing_args: "§cPlease specify the platform and the link."
