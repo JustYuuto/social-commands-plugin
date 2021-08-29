@@ -12,3 +12,7 @@ Some links that can help you:
 - [Changelog](https://nethermc.gitbook.io/socialcommands/changelog)
 
 To install just download the .jar file and move it into the "plugins" folder of your server. **Currently this is not supported by BungeeCord.**
+
+## Todo
+
+- Translations messages
