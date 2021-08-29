@@ -13,8 +13,8 @@ import java.util.List;
 
 public class SocialCommand implements CommandExecutor {
 
-    private Main main;
-    private String platform;
+    private final Main main;
+    private final String platform;
 
     public SocialCommand(Main main, String platform) {
         this.main = main;
@@ -27,9 +27,9 @@ public class SocialCommand implements CommandExecutor {
             Player player = (Player) sender;
             File configFile = new File(main.getDataFolder(), "config.yml");
             YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
-            List<String> platforms = (new SocialRegexs()).platforms;
+            List<String> platforms = SocialRegexs.PLATFORMS;
 
-            if (config.get(platform) != null) {
+            if (config.get("links." + platform) != null) {
                 player.sendMessage("§9Here the " + platform + " of this server: " + config.get(platform));
             } else if (!platforms.contains(platform)) {
                 player.sendMessage("§cThe platform \"" + platform + "\" does not exist.");
