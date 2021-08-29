@@ -2,6 +2,7 @@ package fr.nethermc.socialcommands.commands;
 
 import fr.nethermc.socialcommands.Main;
 import fr.nethermc.socialcommands.SocialRegexs;
+import fr.nethermc.socialcommands.messages.Messages;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class SocialSetCommand implements CommandExecutor {
 
-    private Main main;
+    private final Main main;
 
     public SocialSetCommand(Main main) {
         this.main = main;
@@ -24,22 +25,28 @@ public class SocialSetCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
+
+            if (args.length == 0 || args.length == 1) {
+                player.sendMessage("§cPlease specify the platform and the link.");
+
+                return true;
+            }
+
             File configFile = new File(main.getDataFolder(), "config.yml");
             YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
-            List<String> platforms = (new SocialRegexs()).platforms;
+            List<String> platforms = SocialRegexs.PLATFORMS;
 
             String platform = args[0];
             String link = args[1];
 
             if (!platforms.contains(platform)) {
                 player.sendMessage(
-                    "§cThe platform \"" + platform + "\" does not exist. §rAvailable platforms in the plugin: " +
-                    "https://bit.ly/3gIkrjk"
+                    "§cThe platform \"" + platform + "\" does not exist. §rAvailable platforms: https://bit.ly/3gIkrjk"
                 );
                 return true;
             }
 
-            config.set(platform, link);
+            config.set("links." + platform, link);
 
             try {
                 config.save(configFile);
