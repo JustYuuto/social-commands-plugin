@@ -20,3 +20,4 @@ commands:
   socialset:
     description: Define social links without going through the configuration file
     usage: /socialset <platform> <link>
+    permission: socialcommands.socialset.use

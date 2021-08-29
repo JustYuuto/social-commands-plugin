@@ -34,9 +34,12 @@ public class SocialCommand implements CommandExecutor {
             } else if (!platforms.contains(platform)) {
                 player.sendMessage("§cThe platform \"" + platform + "\" does not exist.");
             } else {
-                player.sendMessage(
-                    "§cThe platform \"" + platform + "\" is not defined. Please define it with \"/socialset " + platform + " <link>\"."
-                );
+                String message = "§cThe platform \"" + platform + "\" is not defined.";
+                if (player.hasPermission("socialcommands.socialset.use")) {
+                    message += " Please define it with \"/socialset " + platform + " <link>\".";
+                }
+
+                player.sendMessage(message);
             }
 
             return true;
