@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.util.List;
@@ -25,15 +26,13 @@ public class SocialCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
         if (sender instanceof Player) {
-            System.out.println(command.tabComplete(sender, alias, args));
-
             Player player = (Player) sender;
             File configFile = new File(main.getDataFolder(), "config.yml");
             YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
             List<String> platforms = Regexs.PLATFORMS;
 
             if (config.get("links." + platform) != null) {
-                player.sendMessage("§9Here the " + platform + " of this server: " + config.get("links." + platform));
+                player.sendMessage("§9Here the " + platform + " of this server: " + getFullLink((String) config.get("links." + platform)));
             } else if (!platforms.contains(platform)) {
                 player.sendMessage("§cThe platform \"" + platform + "\" doesn't exist. Error code: PLATFORM_DOESNT_EXIST");
             } else {
@@ -50,6 +49,24 @@ public class SocialCommand implements CommandExecutor {
         }
 
         return false;
+    }
+
+    @Nullable
+    private String getFullLink(String link) {
+        switch (platform) {
+            case "discord":
+                if (link.matches("discord.(gg|io)/([a-zA-Z0-9]+)")) return "https://" + link;
+                if (link.matches("([a-zA-Z0-9]+)")) return "https://discord.gg/" + link;
+            case "twitter":
+                if (link.matches(Regexs.TWITTER_REGEX)) return "https://twitter.com/" + link.replace("@", "");
+            case "instagram":
+                if (link.matches(Regexs.INSTAGRAM_REGEX)) return "https://www.instagram.com/" + link.replace("@", "");
+            case "website":
+                if (link.matches(Regexs.WEBSITE_REGEX)) return link;
+                if (link.matches("(([a-z.]+)\\.)?(([a-z]+)\\.([a-z]+))(/([a-zA-Z0-9_\\-.]+)?)?")) return "https://" + link;
+            default:
+                return null;
+        }
     }
 
 }
