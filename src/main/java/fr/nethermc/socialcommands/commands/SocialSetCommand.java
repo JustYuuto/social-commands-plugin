@@ -56,14 +56,14 @@ public class SocialSetCommand implements CommandExecutor, TabExecutor {
             if (new Verifications().verifyPlatform(platform, link)) {
                 config.set("links." + platform, link);
             } else {
-                player.sendMessage("§cSorry, but your link doesn't match to the regex. Error code: LINK_DOESNT_MATCH_TO_REGEX");
+                player.sendMessage("§cSorry, but your link doesn't match to the regex. Error code: LINK_DOESNT_MATCH_REGEX");
 
                 return false;
             }
 
             try {
                 config.save(configFile);
-                player.sendMessage("§aSuccessfully saved the config for \"" + platform + "\"!");
+                player.sendMessage("§aSuccessfully saved the config for " + platform + "!");
                 return true;
             } catch (IOException e) {
                 player.sendMessage("§cCannot save the config. Check the console for more details. Error code: CANNOT_SAVE_CONFIG");
