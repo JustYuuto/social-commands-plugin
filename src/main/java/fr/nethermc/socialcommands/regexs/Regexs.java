@@ -2,8 +2,6 @@ package fr.nethermc.socialcommands.regexs;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Regexs {
 
@@ -16,10 +14,10 @@ public class Regexs {
     public Regexs() {}
 
     public boolean regexMatch(String pattern, String string) {
-        Pattern compiledPattern = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = compiledPattern.matcher(string);
+        // Pattern compiledPattern = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
+        // Matcher matcher = compiledPattern.matcher(string);
 
-        return matcher.find();
+        return string.matches(pattern);
     }
 
 }
