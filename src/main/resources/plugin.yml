@@ -19,5 +19,5 @@ commands:
     usage: /website
   socialset:
     description: Define social links without going through the configuration file
-    usage: /socialset <platform> <link>
+    usage: /socialset discord|twitter|instagram|website <link>
     permission: socialcommands.socialset.use
