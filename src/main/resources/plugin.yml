@@ -20,4 +20,4 @@ commands:
   socialset:
     description: Define social links without going through the configuration file
     usage: /socialset discord|twitter|instagram|website <link>
-    permission: socialcommands.socialset.use
+    permission: socialcommands.socialset
