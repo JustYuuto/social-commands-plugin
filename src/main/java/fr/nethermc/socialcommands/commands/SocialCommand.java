@@ -37,7 +37,7 @@ public class SocialCommand implements CommandExecutor {
                 player.sendMessage("§cThe platform \"" + platform + "\" doesn't exist. Error code: PLATFORM_DOESNT_EXIST");
             } else {
                 String message = "§cThe platform \"" + platform + "\" is not defined.";
-                if (player.hasPermission("socialcommands.socialset.use")) {
+                if (player.hasPermission("socialcommands.socialset")) {
                     message += " Define it with \"/socialset " + platform + " <link>\".";
                 }
                 message += " Error code: PLATFORM_NOT_DEFINED";
@@ -55,15 +55,15 @@ public class SocialCommand implements CommandExecutor {
     private String getFullLink(String link) {
         switch (platform) {
             case "discord":
-                if (link.matches("discord.(gg|io)/([a-zA-Z0-9]+)")) return "https://" + link;
+                if (link.matches(Regexs.DISCORD_REGEX)) return "https://" + link;
                 if (link.matches("([a-zA-Z0-9]+)")) return "https://discord.gg/" + link;
             case "twitter":
                 if (link.matches(Regexs.TWITTER_REGEX)) return "https://twitter.com/" + link.replace("@", "");
             case "instagram":
                 if (link.matches(Regexs.INSTAGRAM_REGEX)) return "https://www.instagram.com/" + link.replace("@", "");
             case "website":
-                if (link.matches(Regexs.WEBSITE_REGEX)) return link;
                 if (link.matches("(([a-z.]+)\\.)?(([a-z]+)\\.([a-z]+))(/([a-zA-Z0-9_\\-.]+)?)?")) return "https://" + link;
+                if (link.matches(Regexs.WEBSITE_REGEX)) return link;
             default:
                 return null;
         }
