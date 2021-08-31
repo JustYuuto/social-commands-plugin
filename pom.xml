@@ -6,7 +6,7 @@
 
     <groupId>fr.nethermc</groupId>
     <artifactId>socialcommands</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <name>SocialCommands</name>
     <description>SocialCommands is a plugin that adds commands like /discord to your server</description>
