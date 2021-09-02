@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/github/v/release/NetherMCtv/social-commands-plugin?label=version&style=for-the-badge" alt="Version" align="center" />
 </div>
 
-**SocialCommands** is a plugin that adds commands like `/discord` to your server.
+**SocialCommands** is a plugin that adds commands like `/discord` to your server. (If you download the plugin, please rate it)
 
 Some links that can help you:
 - [How to Use](https://nethermc.gitbook.io/socialcommands/how-to-use)
