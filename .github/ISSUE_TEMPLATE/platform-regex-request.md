@@ -9,5 +9,5 @@ assignees: ''
 
 ## What's the platform or regex you want to be added?
 
-Platform: ``
-Regex: ``
+Platform: `...`
+Regex: `...`
